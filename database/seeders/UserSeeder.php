@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'nama' => 'Ridha Nafile',
+            'nama' => 'Ridha Nafila',
             'role' => 'ADMIN',
             'email' => 'ridhanafila@gmail.com',
             'password' => Hash::make('password')
