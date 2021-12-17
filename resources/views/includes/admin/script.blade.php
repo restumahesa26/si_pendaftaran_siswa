@@ -7,3 +7,5 @@
 
 <!-- Custom scripts for all pages-->
 <script src="{{ url('backend/js/sb-admin-2.min.js') }}"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
+

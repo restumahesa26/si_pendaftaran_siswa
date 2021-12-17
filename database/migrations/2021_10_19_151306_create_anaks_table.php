@@ -23,7 +23,6 @@ class CreateAnaksTable extends Migration
             $table->string('agama', 15);
             $table->enum('golongan_darah', ['A','B','AB','O']);
             $table->string('alamat', 50);
-            $table->enum('jenjang', ['PAUD','TK','SD']);
             $table->string('nama_wali', 40)->nullable();
             $table->string('pekerjaan_wali', 25)->nullable();
             $table->string('alamat_wali', 50)->nullable();

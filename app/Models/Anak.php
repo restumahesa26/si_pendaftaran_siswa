@@ -10,7 +10,7 @@ class Anak extends Model
     use HasFactory;
 
     protected $fillable = [
-        'orang_tua_id', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'agama', 'golongan_darah', 'alamat', 'nama_wali', 'pekerjaan_wali', 'alamat_wali', 'hubungan_dengan_wali', 'jenjang'
+        'orang_tua_id', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'agama', 'golongan_darah', 'alamat', 'nama_wali', 'pekerjaan_wali', 'alamat_wali', 'hubungan_dengan_wali'
     ];
 
     public function orang_tua()

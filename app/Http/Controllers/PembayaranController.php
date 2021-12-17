@@ -31,7 +31,13 @@ class PembayaranController extends Controller
 
     public function store(Request $request)
     {
-        $check = Pembayaran::where('anak_id', $request->anak_id)->first();
+        $check = Pembayaran::where('anak_id', $request->anak_id)->where('jenjang', $request->jenjang)->first();
+
+        $request->validate([
+            'bukti_pembayaran' => 'required|image|mimes:png,jpg|max:1024',
+            'anak_id' => 'required|numeric',
+            'jenjang' => 'required|in:Pre School,Pre Kindy,Elementary School'
+        ]);
 
         if($check !== NULL) {
             return redirect()->route('pembayaran.index');
@@ -44,6 +50,7 @@ class PembayaranController extends Controller
             Pembayaran::create([
                 'orang_tua_id' => Auth::user()->orang_tua->id,
                 'anak_id' => $request->anak_id,
+                'jenjang' => $request->jenjang,
                 'bukti_pembayaran' => $imageNames,
             ]);
 

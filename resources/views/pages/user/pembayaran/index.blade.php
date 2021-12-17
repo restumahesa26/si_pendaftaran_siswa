@@ -18,9 +18,10 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Anak</th>
+                                    <th>Jenjang</th>
                                     <th>Bukti Pembayaran</th>
+                                    <th>Pesan</th>
                                     <th>Status</th>
-                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -28,20 +29,25 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->anak->nama }}</td>
+                                    <td>{{ $item->jenjang }}</td>
                                     <td>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-gambar{{ $item->id }}">
-                                            Lihat Gambar
+                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-gambar{{ $item->id }}">
+                                            Lihat Bukti Tranfer
                                         </button>
                                     </td>
-                                    <td>
-                                        @if ($item->status === 0)
-                                            <span class="text-warning">Belum Dikonfirmasi</span>
+                                    <td class="text-primary" style="font-weight: bold">
+                                        @if ($item->pesan)
+                                            {{ $item->pesan }}
                                         @else
-                                            <span class="text-success">Sudah Dikonfirmasi</span>
+                                            -
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('pembayaran.delete', $item->id) }}" class="btn btn-sm btn-danger">Hapus</a>
+                                        @if ($item->status === 0)
+                                            <span class="badge badge-danger">Belum Dikonfirmasi</span>
+                                        @else
+                                            <span class="badge badge-success">Sudah Dikonfirmasi</span>
+                                        @endif
                                     </td>
                                 </tr>
                                 @empty

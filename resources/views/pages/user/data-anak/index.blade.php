@@ -20,7 +20,6 @@
                                     <th>Nama</th>
                                     <th>Tempat, Tanggal Lahir</th>
                                     <th>Jenis Kelamin</th>
-                                    <th>Jenjang</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -35,7 +34,6 @@
                                     @else
                                         Perempuan
                                     @endif</td>
-                                    <td>{{ $item->jenjang }}</td>
                                     <td>
                                         <a href="{{ route('data-anak.edit', $item->id) }}" class="btn btn-sm btn-info">Edit</a>
                                         <form action="{{ route('data-anak.delete', $item->id) }}" method="POST" class="d-inline">

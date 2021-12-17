@@ -32,7 +32,6 @@ class AnakController extends Controller
             'agama' => ['required', 'string', 'max:15'],
             'golongan_darah' => ['required', 'string', 'max:15'],
             'alamat' => ['required', 'string', 'max:50'],
-            'jenjang' => ['required', 'in:PAUD,TK,SD'],
         ]);
 
         Anak::create([

@@ -18,8 +18,17 @@
                             <select name="anak_id" id="anak_id" class="form-control">
                                 <option value="">--Pilih Anak--</option>
                                 @foreach ($anaks as $anak)
-                                    <option value="{{ $anak->id }}" @if (old('anak_id') === $anak->id) selected @endif>{{ $anak->nama }} - {{ $anak->jenjang }}</option>
+                                    <option value="{{ $anak->id }}" @if (old('anak_id') === $anak->id) selected @endif>{{ $anak->nama }}</option>
                                 @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="jenjang" class="form-label">Jenjang Sekolah</label>
+                            <select name="jenjang" id="jenjang" class="form-control">
+                                <option value="">--Pilih Jenjang Sekolah--</option>
+                                <option value="Pre School">Pre School</option>
+                                <option value="Pre Kindy">Pre Kindy</option>
+                                <option value="Elementary School">Elementary School</option>
                             </select>
                         </div>
                         <div class="form-group">

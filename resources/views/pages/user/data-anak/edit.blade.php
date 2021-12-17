@@ -53,15 +53,6 @@
                             <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Masukkan Alamat" value="{{ $item->alamat }}">
                         </div>
                         <div class="form-group">
-                            <label for="jenjang" class="form-label">Jenjang Sekolah</label>
-                            <select name="jenjang" id="jenjang" class="form-control">
-                                <option value="">--Pilih Jenjang Sekolah--</option>
-                                <option value="PAUD" @if ($item->jenjang === 'PAUD') selected @endif>PAUD</option>
-                                <option value="TK" @if ($item->jenjang === 'TK') selected @endif>TK</option>
-                                <option value="SD" @if ($item->jenjang === 'SD') selected @endif>SD</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label for="nama_wali" class="form-label">Nama Wali</label>
                             <input type="text" name="nama_wali" id="nama_wali" class="form-control" placeholder="Masukkan Nama Wali" value="{{ $item->nama_wali }}">
                         </div>

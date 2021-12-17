@@ -32,7 +32,7 @@
     <li class="nav-item @if (Route::is('profile.*') || Route::is('data-anak.*')) active @endif">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-user-alt fa-cog"></i>
             <span>Data Diri</span>
         </a>
         <div id="collapseTwo" class="collapse @if (Route::is('profile.*') || Route::is('data-anak.*')) show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -46,14 +46,29 @@
 
     <li class="nav-item @if (Route::is('pembayaran.*')) active @endif">
         <a class="nav-link" href="{{ route('pembayaran.index') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-dollar-sign"></i>
             <span>Pembayaran</span></a>
     </li>
+    <li class="nav-item @if (Route::is('berkas.*')) active @endif">
+        <a class="nav-link" href="{{ route('berkas.index') }}">
+            <i class="fas fa-fw fa-clipboard-list"></i>
+            <span>Upload Berkas</span></a>
+    </li>
+    <li class="nav-item @if (Route::is('wawancara.*')) active @endif">
+        <a class="nav-link" href="{{ route('wawancara.index') }}">
+            <i class="fas fa-fw fa-comments"></i>
+            <span>Jadwal Wawancara</span></a>
+    </li>
     @elseif(Auth::user()->role === 'ADMIN')
-    <li class="nav-item @if (Route::is('pembayaran.*')) active @endif">
+    <li class="nav-item @if (Route::is('admin-pembayaran.*')) active @endif">
         <a class="nav-link" href="{{ route('admin-pembayaran.index') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-dollar-sign"></i>
             <span>Pembayaran</span></a>
+    </li>
+    <li class="nav-item @if (Route::is('admin-berkas.*')) active @endif">
+        <a class="nav-link" href="{{ route('admin-berkas.index') }}">
+            <i class="fas fa-fw fa-clipboard-list"></i>
+            <span>Upload Berkas</span></a>
     </li>
     @endif
 
