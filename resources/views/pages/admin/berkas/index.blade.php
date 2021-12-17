@@ -242,4 +242,38 @@
             $('#table').DataTable();
         });
     </script>
+
+    <script src="{{ url('js/sweetalert2.all.min.js') }}"></script>
+
+    @if ($message = Session::get('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: '{{ $message }}'
+        })
+    </script>
+    @endif
+
+    @if ($errors->any())
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: 'Perhatikan Lagi Field Yang Diisi'
+            })
+        </script>
+    @endif
+
+    @if ($items->where('status', 0)->first())
+    <script>
+        Swal.fire({
+            icon: 'info',
+            title: 'Perhatian',
+            text: 'Terdapat Pembayaran Yang Belum Diverifikasi'
+        })
+    </script>
+    @endif
 @endpush
+
+

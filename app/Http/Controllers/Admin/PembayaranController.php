@@ -25,7 +25,7 @@ class PembayaranController extends Controller
         $item->pesan = 'Lanjutkan ke Tahap Berkas';
         $item->save();
 
-        return redirect()->route('admin-pembayaran.index');
+        return redirect()->route('admin-pembayaran.index')->with(['success' => 'Berhasil Mengkonfirmasi Pembayaran']);
     }
 
     public function batal_pembayaran(Request $request, $id)
@@ -40,6 +40,6 @@ class PembayaranController extends Controller
         $item->pesan = $request->pesan;
         $item->save();
 
-        return redirect()->route('admin-pembayaran.index');
+        return redirect()->route('admin-pembayaran.index')->with(['success' => 'Berhasil Membatalkan Konfirmasi Pembayaran']);
     }
 }

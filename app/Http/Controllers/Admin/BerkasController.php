@@ -26,7 +26,7 @@ class BerkasController extends Controller
         $item->pesan = 'Lanjutkan ke Tahap Wawancara';
         $item->save();
 
-        return redirect()->route('admin-berkas.index');
+        return redirect()->route('admin-berkas.index')->with(['success' => 'Berhasil Mengkonfirmasi Berkas']);
     }
 
     public function batal_berkas(Request $request, $id)
@@ -41,7 +41,11 @@ class BerkasController extends Controller
         $item->pesan = $request->pesan;
         $item->save();
 
-        return redirect()->route('admin-berkas.index');
+        $wawancara = Wawancara::where('berkas_id', $id)->first();
+
+        $wawancara->delete();
+
+        return redirect()->route('admin-berkas.index')->with(['success' => 'Berhasil Membatalkan Konfirmasi Berkas']);
     }
 
     public function set_wawancara(Request $request, $id)
@@ -68,6 +72,6 @@ class BerkasController extends Controller
             ]);
         }
 
-        return redirect()->route('admin-berkas.index');
+        return redirect()->route('admin-berkas.index')->with(['success' => 'Berhasil Memberikan Jadwal Wawancara']);
     }
 }

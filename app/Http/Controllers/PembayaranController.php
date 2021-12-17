@@ -54,16 +54,7 @@ class PembayaranController extends Controller
                 'bukti_pembayaran' => $imageNames,
             ]);
 
-            return redirect()->route('pembayaran.index');
+            return redirect()->route('pembayaran.index')->with(['success' => 'Berhasil Menambah Data Pembayaran']);
         }
-    }
-
-    public function delete($id)
-    {
-        $item = Pembayaran::findOrFail($id);
-
-        $item->delete();
-
-        return redirect()->route('pembayaran.index');
     }
 }

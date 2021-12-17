@@ -32,3 +32,25 @@
         @endforelse
     </div>
 @endsection
+
+@push('addon-script')
+    <script src="{{ url('js/sweetalert2.all.min.js') }}"></script>
+
+    @if ($items)
+    <script>
+        Swal.fire({
+            icon: 'info',
+            title: 'Perhatian',
+            text: 'Silahkan Lakukan Wawancara Sesuai Jadwal'
+        })
+    </script>
+    @else
+    <script>
+        Swal.fire({
+            icon: 'info',
+            title: 'Perhatian',
+            text: 'Belum Terdapat Jadwal Wawancara'
+        })
+    </script>
+    @endif
+@endpush

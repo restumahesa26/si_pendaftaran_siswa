@@ -68,7 +68,7 @@ class BerkasController extends Controller
                 'akta_kelahiran' => $imageNames3,
             ]);
 
-            return redirect()->route('berkas.index');
+            return redirect()->route('berkas.index')->with(['success' => 'Berhasil Menambah Data Berkas']);
         }
     }
 }

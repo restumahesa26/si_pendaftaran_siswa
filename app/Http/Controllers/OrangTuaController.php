@@ -58,6 +58,6 @@ class OrangTuaController extends Controller
         }
         $user->save();
 
-        return redirect()->route('profile.show');
+        return redirect()->route('profile.show')->with(['success' => 'Berhasil Mengubah Profile']);
     }
 }

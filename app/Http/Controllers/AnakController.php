@@ -50,7 +50,7 @@ class AnakController extends Controller
             'hubungan_dengan_wali' => $request->hubungan_dengan_wali,
         ]);
 
-        return redirect()->route('data-anak.index');
+        return redirect()->route('data-anak.index')->with(['success' => 'Berhasil Menambah Data Anak']);
     }
 
     public function edit($id)
@@ -73,8 +73,7 @@ class AnakController extends Controller
             'jenis_kelamin' => ['required', 'in:L,P'],
             'agama' => ['required', 'string', 'max:15'],
             'golongan_darah' => ['required', 'string', 'max:15'],
-            'alamat' => ['required', 'string', 'max:50'],
-            'jenjang' => ['required', 'in:PAUD,TK,SD'],
+            'alamat' => ['required', 'string', 'max:50']
         ]);
 
         $item->update([
@@ -92,7 +91,7 @@ class AnakController extends Controller
             'hubungan_dengan_wali' => $request->hubungan_dengan_wali,
         ]);
 
-        return redirect()->route('data-anak.index');
+        return redirect()->route('data-anak.index')->with(['success' => 'Berhasil Mengubah Data Anak']);
     }
 
     public function delete($id)
@@ -101,6 +100,6 @@ class AnakController extends Controller
 
         $item->delete();
 
-        return redirect()->route('data-anak.index');
+        return redirect()->route('data-anak.index')->with(['success' => 'Berhasil Menghapus Data Anak']);
     }
 }
