@@ -85,6 +85,11 @@
                 <div class="card">
                     <div class="card-body">
                         <h2>Selamat Datang, {{ Auth::user()->nama }}</h2>
+                        <div class="d-flex-justify-content-start mt-3">
+                            <a href="{{ route('wawancara.index') }}" class="btn btn-primary mr-3">Lihat Jadwal Wawancara</a>
+                            <a href="{{ route('pembayaran.index') }}" class="btn btn-primary mr-3">Lihat Pembayaran</a>
+                            <a href="{{ route('berkas.index') }}" class="btn btn-primary">Lihat Berkas</a>
+                        </div>
                     </div>
                 </div>
             </div>

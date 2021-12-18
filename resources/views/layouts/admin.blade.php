@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>SB Admin 2 - Dashboard</title>
+    <link rel="shortcut icon" href="{{ url('logo.png') }}" />
 
     @include('includes.admin.style')
 
@@ -45,7 +46,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Highscope School 2021</span>
                     </div>
                 </div>
             </footer>

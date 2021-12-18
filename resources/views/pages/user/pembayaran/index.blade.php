@@ -13,7 +13,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover">
+                        <table class="table table-bordered table-hover text-nowrap">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -22,6 +22,7 @@
                                     <th>Bukti Pembayaran</th>
                                     <th>Pesan</th>
                                     <th>Status</th>
+                                    <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,6 +50,18 @@
                                             <span class="badge badge-success">Sudah Dikonfirmasi</span>
                                         @endif
                                     </td>
+                                    <td class="text-center">
+                                        @if ($item->status == 0)
+                                            <a href="{{ route('pembayaran.edit', $item->id) }}" class="btn btn-info btn-sm">Edit</a>
+                                            <form action="{{ route('pembayaran.destroy', $item->id) }}" method="post" class="d-inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm btn-hapus">Hapus</button>
+                                            </form>
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
                                 </tr>
                                 @empty
                                 <tr>
@@ -60,8 +73,8 @@
                     </div>
                 </div>
             </div>
-            @foreach ($items as $item)
-            <div class="modal fade" id="modal-gambar{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            @foreach ($items as $item2)
+            <div class="modal fade" id="modal-gambar{{ $item2->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -71,7 +84,7 @@
                       </button>
                     </div>
                     <div class="modal-body text-center">
-                      <img src="{{ asset('storage/assets/bukti-pembayaran/' . $item->bukti_pembayaran) }}" alt="" width="1100">
+                      <img src="{{ asset('storage/assets/bukti-pembayaran/' . $item2->bukti_pembayaran) }}" alt="" width="1100">
                     </div>
                   </div>
                 </div>
@@ -93,4 +106,28 @@
         })
     </script>
     @endif
+
+    <script>
+        $('.btn-hapus').on('click', function (e) {
+            e.preventDefault(); // prevent form submit
+            var form = event.target.form;
+            Swal.fire({
+            title: 'Yakin Menghapus Data?',
+            text: "Data Akan Terhapus Permanen",
+            icon: 'warning',
+            allowOutsideClick: false,
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Hapus',
+            cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }else {
+                    //
+                }
+            });
+        });
+    </script>
 @endpush

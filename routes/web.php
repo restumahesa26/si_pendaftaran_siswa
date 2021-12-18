@@ -69,11 +69,23 @@ Route::middleware(['auth'])
 
         Route::post('/pembayaran/tambah-data/kirim-data', [PembayaranController::class, 'store'])->name('pembayaran.store');
 
+        Route::get('/pembayaran/ubah-data-{id}', [PembayaranController::class, 'edit'])->name('pembayaran.edit');
+
+        Route::put('/pembayaran/ubah-data-{id}/update', [PembayaranController::class, 'update'])->name('pembayaran.update');
+
+        Route::delete('/pembayaran/hapus-data-{id}', [PembayaranController::class, 'destroy'])->name('pembayaran.destroy');
+
         Route::get('/upload-berkas', [BerkasController::class, 'index'])->name('berkas.index');
 
         Route::get('/upload-berkas/tambah-data', [BerkasController::class, 'create'])->name('berkas.create');
 
         Route::post('/upload-berkas/tambah-data/kirim-data', [BerkasController::class, 'store'])->name('berkas.store');
+
+        Route::get('/upload-berkas/ubah-data-{id}', [BerkasController::class, 'edit'])->name('berkas.edit');
+
+        Route::put('/upload-berkas/ubah-data-{id}/update', [BerkasController::class, 'update'])->name('berkas.update');
+
+        Route::delete('/upload-berkas/hapus-data-{id}', [BerkasController::class, 'destroy'])->name('berkas.destroy');
 
         Route::get('/jadwal-wawancara', [WawancaraController::class, 'index'])->name('wawancara.index');
 

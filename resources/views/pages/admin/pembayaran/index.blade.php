@@ -18,6 +18,7 @@
                                 <th>No</th>
                                 <th>Nama Orang Tua</th>
                                 <th>Nama Anak</th>
+                                <th>Jenjang</th>
                                 <th>Bukti Pembayaran</th>
                                 <th>Pesan</th>
                                 <th>Status</th>
@@ -28,8 +29,9 @@
                             @forelse ($items as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->anak->nama }}</td>
                                 <td>{{ $item->orang_tua->user->nama }}</td>
+                                <td>{{ $item->anak->nama }}</td>
+                                <td>{{ $item->jenjang }}</td>
                                 <td>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
                                         data-target="#modal-gambar{{ $item->id }}">
