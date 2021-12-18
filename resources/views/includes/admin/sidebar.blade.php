@@ -6,7 +6,7 @@
         <div class="sidebar-brand-icon">
             <img src="{{ url('logo.png') }}" alt="" srcset="" width="40">
         </div>
-        <div class="sidebar-brand-text mx-3">Highscope School</div>
+        <div class="sidebar-brand-text mx-3" style="text-transform: capitalize">Highscope School</div>
     </a>
 
     <!-- Divider -->
