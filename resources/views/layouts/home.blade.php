@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
     <title>Sekolah Highscope Kota Bengkulu</title>
+    <link rel="shortcut icon" href="{{ url('logo.png') }}" />
 
     @include('includes.home.style')
 
