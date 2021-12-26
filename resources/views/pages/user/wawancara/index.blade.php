@@ -36,7 +36,7 @@
 @push('addon-script')
     <script src="{{ url('js/sweetalert2.all.min.js') }}"></script>
 
-    @if ($items)
+    @if ($items->count() >= 1)
     <script>
         Swal.fire({
             icon: 'info',

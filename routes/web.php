@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\PembayaranController as AdminPembayaranController
 use App\Http\Controllers\AnakController;
 use App\Http\Controllers\BerkasController;
 use App\Http\Controllers\Admin\BerkasController as AdminBerkasController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrangTuaController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\WawancaraController;
@@ -21,9 +22,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'home'])->name('home');
+
+Route::get('/profil', [HomeController::class, 'profil'])->name('profil');
+
+Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
 
 Route::prefix('admin')
     ->middleware(['auth','admin'])
